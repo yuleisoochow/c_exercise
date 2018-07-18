@@ -53,3 +53,5 @@ dkms.conf
 
 # Backup file
 *.back
+
+bin/
