@@ -7,7 +7,10 @@ LDFLAGS = -L./
 
 BIN = $(shell pwd | sed "s/.*\///" | cut -c3-) 
 
-OBJS = $(shell ls *\.c | sed "s/\.c$$/.o/")
+SOURCE = $(wildcard *.c)
+
+OBJS = $(patsubst %.c, %.o, $(SOURCE))
+#OBJS = $(shell ls *\.c | sed "s/\.c$$/.o/")
 
 all: $(BIN)
 

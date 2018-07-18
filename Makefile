@@ -1,11 +1,13 @@
 
 SHELL = /bin/bash
 
+ROOT_DIR = $(shell pwd)
+
 SUBDIR = $(shell ls -d */ | grep "^[0-9]\{1,\}_" | sed "s/\/$$//")
 
 TEST = $(shell ls -d */ | grep "^[0-9]\{1,\}_" | sed "s/\/$$//")
 
-export TARGET_DIR = bin
+export TARGET_DIR = $(ROOT_DIR)/bin
 
 all:
 	$(if $(wildcard $(TARGET_DIR)),, mkdir $(TARGET_DIR))
