@@ -13,7 +13,7 @@ OBJS = $(patsubst %.c, %.o, $(SOURCE))
 #OBJS = $(shell ls *\.c | sed "s/\.c$$/.o/")
 
 all: $(BIN)
-	cp $(BIN) $(TARGET_DIR)/
+	$(if $(TARGET_DIR) , cp $(BIN) $(TARGET_DIR)/$(BIN))
 
 $(BIN): $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN) $(OBJS) $(LDFLAGS)
