@@ -5,7 +5,8 @@ CFLAGS = -Wall -O2 -s
 
 LDFLAGS = -L./
 
-BIN = $(shell pwd | sed "s/.*\///" | cut -c3-) 
+BIN = $(shell pwd | sed "s/.*\///" | sed "s/[0-9]\{1,\}_//") 
+#BIN = $(notdir $(shell pwd))
 
 SOURCE = $(wildcard *.c)
 
